@@ -1,0 +1,44 @@
+  
+
+ task 04/06/2023
+ec2 instance whose key lost
+
+ 1.  create 2 new instance,aws-inctance-1 and aws-instance-2
+
+2.Delete the .pem key file of aws-instance-2
+ and now stop the aws-instance-2
+
+3. Go to EBS volume and select the aws-instance-2 volume,
+go to Action - detach volume 
+
+4. select the aws-instance-2 volume and go to action -attach volume
+
+5. Copy public ip of aws-instace-1 
+   paste in mobaxterm-terminal
+
+6.open mobaxterm-terminal-session -ssh-paste public ip in remote host,
+   specify user 
+   go to on-advance ssh setting  add aws-instance-1 .pem key 
+
+7.run a cmd lsblk ,hvdf partion is show 
+
+8.make dir name /var/gauraw
+
+9.mount that directory in  xvdf1 by using cmd
+ ( mount -o nouuid /dev/xvdf1 /var/gauraw )
+
+10. check that partation by usnig lsblk cmd 
+
+11.  ( cat /home/ec2-user/.ssh/authorized_keys >> /var/gauraw/home/ec2-user/.ssh/authorized_key
+
+
+12. Umount that mount directory ( umount /var/gauraw/ )
+    check by using lsblk cmd 
+
+13. go in aws-instance-2 volume -action - detach volume - go in - action - attach volume 
+    and select the aws-instance-2 -device -/dev/xvda  
+
+14.Goto instance start the instance - copy public ip - start  mobaxterm -start session -paste public ip
+   specify user name ( ec2-user )-
+
+15. loged if u lost .pem file
