@@ -1,0 +1,31 @@
+task :- 10/06/2023
+
+mount s3 bucket on ec2 instance
+go with the ubantu os
+
+1.first create instance s3-mount
+
+2.type sudo -i
+3.sudo apt-get update
+4.sudo apt-get install automake autotools-dev fuse g++ git libcurl4-gnutls-dev libfuse-dev libssl-dev libxml2-dev make pkg-config
+5.git clone https://github.com/s3fs-fuse/s3fs-fuse.git
+6.cd s3fs-fuse
+7. ./autogen.sh
+8. ./configure --prefix=/usr --with-openssl
+9. make
+10.sudo make install
+
+then create s3 bucket
+11.which s3fs
+12.Get the access key and secret key.
+14. Create a new file in /etc
+15.touch /etc/passwd-s3fs
+16.vim /etc/passwd-s3fs
+17.create IAM ROLE give with full accsess with running instance
+   accesskey and secretkey 
+
+18.Change the permission of file
+19.sudo chmod 640 /etc/passwd-s3fs
+
+
+
