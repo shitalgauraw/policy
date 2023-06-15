@@ -1,0 +1,25 @@
+task 14/06/2023
+create an ebc volume and mount on ec2 instance
+
+1.create instance launched 
+
+2.go to the volume create volume 
+
+3.select volume action attached volume
+
+4.go to the instance storage and check
+
+5. connect to ec2-user on cli run a cmd lsblk
+   for partition format volume that you create
+   fdisk /dev/xvdfcreate partition
+
+6.then enter defualt first sector and last sector the parttion
+   lsblk for check parttion created
+
+7.make filesystem mkfs /dev/xvdf1
+  create directory for mount
+   mkdir /mnt/dir1
+   ls /mnt/
+   now mount both
+   mount /dev/xvdf1 /mnt/dir1
+   for umount umount /dev/xvdfi /mnt/dir1
